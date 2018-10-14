@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>YNAB.Dotnet</RootNamespace>
     <Authors>brlinard</Authors>
     <PackageLicenseUrl>https://github.com/blinard/ynab-dotnet/blob/master/LICENSE</PackageLicenseUrl>
     <Owners>brlinard</Owners>
