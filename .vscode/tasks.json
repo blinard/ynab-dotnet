@@ -17,6 +17,26 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "pack",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "pack",
+                "--configuration",
+                "Release"
+            ],
+            "options": {
+                "cwd": "YNAB.Dotnet"
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "echo": true,
+                "focus": true
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "test",
             "command": "dotnet test",
             "type": "shell",
