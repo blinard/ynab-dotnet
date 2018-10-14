@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>YNAB.Dotnet</RootNamespace>
+    <Authors>brlinard</Authors>
+    <PackageLicenseUrl>https://github.com/blinard/ynab-dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <Owners>brlinard</Owners>
+    <PackageProjectUrl>https://github.com/blinard/ynab-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/blinard/ynab-dotnet.git</RepositoryUrl>
+    <Summary>A YNAB Client for .NET</Summary>
+    <PackageTags>ynab;api;rest;client</PackageTags>
+    <Description>A YNAB Client for .NET</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="RestSharp" Version="106.5.2" />
+  </ItemGroup>
+
+</Project>
