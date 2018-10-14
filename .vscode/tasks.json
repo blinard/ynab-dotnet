@@ -15,6 +15,23 @@
                 "reveal": "silent"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test",
+            "command": "dotnet test",
+            "type": "shell",
+            "options": {
+                "cwd": "YNAB.Dotnet.Tests"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "focus": true
+            },
+            "problemMatcher": "$msCompile"
         }
     ]
 }
