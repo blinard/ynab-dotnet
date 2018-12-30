@@ -32,13 +32,14 @@ namespace YNAB.Dotnet.Api
         /// <param name="sinceDate">Only return transactions on or after this date</param>
         /// <param name="type">Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported)</param>
         /// <returns>TransactionsResponse</returns>
-        TransactionsResponse GetTransactions (Guid? budgetId, DateTime? sinceDate, string type);
+        TransactionsResponse GetTransactions (Guid? budgetId, DateTime? sinceDate, int? lastKnowledgeOfServer, string type);
         /// <summary>
         /// List account transactions Returns all transactions for a specified account
         /// </summary>
         /// <param name="budgetId">The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget)</param>
         /// <param name="accountId">The id of the account</param>
         /// <param name="sinceDate">Only return transactions on or after this date</param>
+        /// <param name="lastKnowledgeOfServer">The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included.</param>
         /// <param name="type">Only return transactions of a certain type (i.e. &#39;uncategorized&#39;, &#39;unapproved&#39;)</param>
         /// <returns>TransactionsResponse</returns>
         TransactionsResponse GetTransactionsByAccount (Guid? budgetId, Guid? accountId, DateTime? sinceDate, string type);
@@ -184,7 +185,7 @@ namespace YNAB.Dotnet.Api
             var path = "/budgets/{budget_id}/transactions/{transaction_id}";
             path = path.Replace("{format}", "json");
             path = path.Replace("{" + "budget_id" + "}", ApiClient.ParameterToString(budgetId));
-path = path.Replace("{" + "transaction_id" + "}", ApiClient.ParameterToString(transactionId));
+            path = path.Replace("{" + "transaction_id" + "}", ApiClient.ParameterToString(transactionId));
     
             var queryParams = new Dictionary<String, String>();
             var headerParams = new Dictionary<String, String>();
@@ -214,7 +215,7 @@ path = path.Replace("{" + "transaction_id" + "}", ApiClient.ParameterToString(tr
         /// <param name="sinceDate">Only return transactions on or after this date</param> 
         /// <param name="type">Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported)</param> 
         /// <returns>TransactionsResponse</returns>            
-        public TransactionsResponse GetTransactions (Guid? budgetId, DateTime? sinceDate, string type)
+        public TransactionsResponse GetTransactions (Guid? budgetId, DateTime? sinceDate, int? lastKnowledgeOfServer, string type)
         {
             
             // verify the required parameter 'budgetId' is set
@@ -231,8 +232,9 @@ path = path.Replace("{" + "transaction_id" + "}", ApiClient.ParameterToString(tr
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-             if (sinceDate != null) queryParams.Add("since_date", ApiClient.ParameterToString(sinceDate)); // query parameter
- if (type != null) queryParams.Add("type", ApiClient.ParameterToString(type)); // query parameter
+            if (sinceDate != null) queryParams.Add("since_date", ApiClient.ParameterToString(sinceDate)); // query parameter
+            if (type != null) queryParams.Add("type", ApiClient.ParameterToString(type)); // query parameter
+            if (lastKnowledgeOfServer != null) queryParams.Add("last_knowledge_of_server", ApiClient.ParameterToString(lastKnowledgeOfServer)); //query parameter
                                         
             // authentication setting, if any
             String[] authSettings = new String[] { "bearer" };

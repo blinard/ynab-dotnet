@@ -19,6 +19,13 @@ namespace YNAB.Dotnet.Model {
     [JsonProperty(PropertyName = "transactions")]
     public List<TransactionDetail> Transactions { get; set; }
 
+    /// <summary>
+    /// The knowledge of the server
+    /// </summary>
+    /// <value>The knowledge of the server</value>
+    [DataMember(Name="server_knowledge", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "server_knowledge")]
+    public int? ServerKnowledge { get; set; }
 
     /// <summary>
     /// Get the string presentation of the object

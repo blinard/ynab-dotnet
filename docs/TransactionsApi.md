@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 <a name="gettransactions"></a>
 # **GetTransactions**
-> TransactionsResponse GetTransactions (Guid? budgetId, DateTime? sinceDate, string type)
+> TransactionsResponse GetTransactions (Guid? budgetId, DateTime? sinceDate, int? lastKnowledgeOfServer, string type)
 
 List transactions
 
@@ -182,12 +182,13 @@ namespace Example
             var apiInstance = new TransactionsApi();
             var budgetId = new Guid?(); // Guid? | The id of the budget (\"last-used\" can also be used to specify the last used budget)
             var sinceDate = 2013-10-20;  // DateTime? | Only return transactions on or after this date (optional) 
+            var lastKnowledgeOfServer = 56;  // int? | The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. (optional) 
             var type = type_example;  // string | Only return transactions of a certain type ('uncategorized' and 'unapproved' are currently supported) (optional) 
 
             try
             {
                 // List transactions
-                TransactionsResponse result = apiInstance.GetTransactions(budgetId, sinceDate, type);
+                TransactionsResponse result = apiInstance.GetTransactions(budgetId, sinceDate, lastKnowledgeOfServer, type);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -205,6 +206,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **budgetId** | [**Guid?**](.md)| The id of the budget (\&quot;last-used\&quot; can also be used to specify the last used budget) | 
  **sinceDate** | **DateTime?**| Only return transactions on or after this date | [optional] 
+ **lastKnowledgeOfServer** | **int?**| The starting server knowledge.  If provided, only entities that have changed since last_knowledge_of_server will be included. | [optional] 
  **type** | **string**| Only return transactions of a certain type (&#39;uncategorized&#39; and &#39;unapproved&#39; are currently supported) | [optional] 
 
 ### Return type
